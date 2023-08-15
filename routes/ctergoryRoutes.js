@@ -5,6 +5,7 @@ const AddCatergory = require('../routes_functions/catergory_func/add_catergory')
 const UploadFile = require('../middleware/multer/catergory/addCatergory');
 const GetFile = require('../routes_functions/catergory_func/getfile_catergory');
 const GetCatergories = require('../routes_functions/catergory_func/getall_catergory');
+const UpdateCatergory = require('../routes_functions/catergory_func/update_catergory');
 
 const router = express.Router();
 
@@ -15,6 +16,8 @@ router.post('/',UploadFile.array('file'), AddCatergory);
 router.get('/', GetCatergories);
 
 router.get('/file', GetFile);
+
+router.put('/',UploadFile.array('file'), UpdateCatergory);
 
 
 module.exports = router;
