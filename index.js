@@ -6,6 +6,7 @@ const DB = require('./config/database');
 const CatergoryRouts = require('./routes/ctergoryRoutes');
 const ItemRouts = require('./routes/itemsRoutes');
 const StockRouts = require('./routes/stockRoutes');
+const Customers = require('./routes/customerRoutes');
 
 const app = express();
 
@@ -20,6 +21,7 @@ app.use(express.json());
 app.use('/', CatergoryRouts);
 app.use('/items', ItemRouts)
 app.use('/stock', StockRouts)
+app.use('/customers', Customers)
 
 app.listen( process.env.PORT, () => {
     console.log(`Server running on port ${process.env.PORT}`);

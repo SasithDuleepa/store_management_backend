@@ -8,7 +8,7 @@ const ItemAccCatergory = (req, res) => {
     const parsedUrl = url.parse(urlString);
     const queryParams = querystring.parse(parsedUrl.query);
     const parameter = queryParams.catergory;
-    console.log('pp'+parameter)
+   
 
     if(parameter){
         const query = `SELECT * FROM stock_manage.item WHERE catergory = '${parameter}'`; 

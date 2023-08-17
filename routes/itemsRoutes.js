@@ -8,6 +8,8 @@ const GetFile  = require('./../routes_functions/items_func/getfile_item');
 const UpdateItem = require('./../routes_functions/items_func/update_item');
 const ItemAccCatergory = require('./../routes_functions/items_func/items_accToCatergory');
 
+const ItemfileAccToName = require('./../routes_functions/items_func/itemfile_acctoitemname');
+
 
 
 const router = express.Router();
@@ -21,6 +23,7 @@ router.post('/',UploadFile.array('file'), AddItem);
 router.get('/', GetAll);
 
 router.get('/file', GetFile);
+router.get('/itemname', ItemfileAccToName);
 
 router.put('/update',UploadFile.array('file'), UpdateItem);
 

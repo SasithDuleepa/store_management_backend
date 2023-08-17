@@ -9,7 +9,7 @@ const StoreItemAccCatergory = (req, res) => {
     const parsedUrl = url.parse(urlString);
     const queryParams = querystring.parse(parsedUrl.query);
     const parameter = queryParams.catergory;
-    console.log('parameter'+parameter)
+    // console.log('parameter'+parameter)
 
     if(parameter){
         
