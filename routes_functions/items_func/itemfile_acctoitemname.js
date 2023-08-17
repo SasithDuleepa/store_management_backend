@@ -13,12 +13,12 @@ const GetFile = async(req,res)=>{
         const query = `SELECT item_file FROM item WHERE item_name = '${parameter}'`;
         DB.connection.query(query, (err, result) => {
             if(result){
-                console.log(result[0].item_file)
-                let file = result[0].item_file
+                let file = null;
+                file = result[0].item_file
                 if(!file||file === null || file === undefined|| file === 'undefined' || file === "" || file==='null')
                 {res.send("No file")
                 console.log('no file')
-            }else{
+            }else if(file){
                 res.sendFile(path.join(__dirname, `../../uploads/items/${file}`))
             }
 
