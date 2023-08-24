@@ -8,7 +8,7 @@ const GetFile = async(req,res)=>{
     const parsedUrl = url.parse(urlString);
     const queryParams = querystring.parse(parsedUrl.query);
     const parameter = queryParams.ItemName;
-    console.log("parameter")
+    console.log(queryParams)
     if(parameter){
         const query = `SELECT item_file FROM item WHERE item_name = '${parameter}'`;
         DB.connection.query(query, (err, result) => {

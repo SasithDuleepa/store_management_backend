@@ -29,7 +29,7 @@ const UpdateCatergory = async(req,res) =>{
                   res.status(200).json({message:"Catergory Updated" })
                   // console.log(result)
               }else{
-      
+                  res.status(404).send("no catergory updated")
               }
           })
 
@@ -48,6 +48,8 @@ const UpdateCatergory = async(req,res) =>{
           // console.log(result)
       }else{
         console.log(err)
+          res.status(404).send("no catergory updated")
+      
       }
   })
   }

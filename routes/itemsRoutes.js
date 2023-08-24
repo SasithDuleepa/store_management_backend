@@ -10,7 +10,7 @@ const ItemAccCatergory = require('./../routes_functions/items_func/items_accToCa
 
 const ItemfileAccToName = require('./../routes_functions/items_func/itemfile_acctoitemname');
 
-
+const DeleteItem = require('./../routes_functions/items_func/delete_item');
 
 const router = express.Router();
 
@@ -28,5 +28,7 @@ router.get('/itemname', ItemfileAccToName);
 router.put('/update',UploadFile.array('file'), UpdateItem);
 
 router.get('/accToCatergory', ItemAccCatergory);
+
+router.delete('/', DeleteItem);
 
 module.exports = router;

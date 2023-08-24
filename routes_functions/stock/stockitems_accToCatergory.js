@@ -19,7 +19,7 @@ const StoreItemAccCatergory = (req, res) => {
         DB.connection.query(query, (err, result) => {
             if(result){
                 res.send(result)
-                console.log('aaaa')
+                console.log(result)
             }else{
                 console.log(err)
             }
