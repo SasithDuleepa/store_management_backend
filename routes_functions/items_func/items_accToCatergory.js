@@ -7,11 +7,12 @@ const ItemAccCatergory = (req, res) => {
     const urlString = req.url;
     const parsedUrl = url.parse(urlString);
     const queryParams = querystring.parse(parsedUrl.query);
-    const parameter = queryParams.catergory;
+    const parameter = queryParams.catergory_id;
+    console.log(parameter)
    
 
     if(parameter){
-        const query = `SELECT * FROM stock_manage.item WHERE catergory = '${parameter}'`; 
+        const query = `SELECT * FROM stock_manage.item WHERE catergory_name = '${parameter}'`; 
         DB.connection.query(query, (err, result) => {
             if(result){
                 res.send(result)

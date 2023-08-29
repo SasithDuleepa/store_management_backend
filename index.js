@@ -9,6 +9,7 @@ const ItemRouts = require('./routes/itemsRoutes');
 const StockRouts = require('./routes/stockRoutes');
 const Customers = require('./routes/customerRoutes');
 const Bills = require('./routes/billRoutes');
+const Email = require('./routes/mailRoutes');
 
 const app = express();
 
@@ -25,6 +26,7 @@ app.use('/items', ItemRouts)
 app.use('/stock', StockRouts)
 app.use('/customers', Customers)
 app.use('/bills', Bills)
+app.use('/email', Email)
 
 app.listen( process.env.PORT, () => {
     console.log(`Server running on port ${process.env.PORT}`);

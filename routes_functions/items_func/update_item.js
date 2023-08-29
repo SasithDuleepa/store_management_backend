@@ -43,7 +43,7 @@ const UpdateItem = async(req,res) =>{
   })
 
   }else if(existfilename){
-    const query = `UPDATE item SET item_name='${newitem}',catergory='${newcatergory}',item_file='${existfilename}' WHERE item_id=${_id}`;
+    const query = `UPDATE item SET item_name='${newitem}',catergory_name='${newcatergory}',item_file='${existfilename}' WHERE item_id=${_id}`;
     DB.connection.query(query,(err,result)=>{
       if(result){
           res.status(200).json({message:"Item Updated" })

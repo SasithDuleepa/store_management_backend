@@ -19,7 +19,7 @@ const UpdateCatergory = async(req,res) =>{
     DB.connection.query(file_quey,(err,result)=>{
         if(result){
             const exist_file = result[0].catergory_file;
-            const filePath = `./uploads/${exist_file}`;
+            const filePath = `./uploads/catergory/${exist_file}`;
             deleteFile(filePath)
 
             //update

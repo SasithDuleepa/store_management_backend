@@ -18,7 +18,7 @@ const GetFile = async (req, res) => {
         // console.log('no filename found!!')
     }else{
         
-        res.sendFile(path.join(__dirname, `../../uploads/${parameter}`))
+        res.sendFile(path.join(__dirname, `../../uploads/catergory/${parameter}`))
         // console.log(queryParams)
     }
    
