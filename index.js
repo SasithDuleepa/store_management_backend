@@ -10,6 +10,10 @@ const StockRouts = require('./routes/stockRoutes');
 const Customers = require('./routes/customerRoutes');
 const Bills = require('./routes/billRoutes');
 const Email = require('./routes/mailRoutes');
+const UserRole = require('./routes/userRoleRoutes');
+const User = require('./routes/userRoutes');
+const Login = require('./routes/loginRoutes');
+const Vendor = require('./routes/vendorRoutes');
 
 const app = express();
 
@@ -27,6 +31,10 @@ app.use('/stock', StockRouts)
 app.use('/customers', Customers)
 app.use('/bills', Bills)
 app.use('/email', Email)
+app.use('/user_role', UserRole)
+app.use('/user', User)
+app.use('/login', Login)
+app.use('/vendor', Vendor)
 
 app.listen( process.env.PORT, () => {
     console.log(`Server running on port ${process.env.PORT}`);
