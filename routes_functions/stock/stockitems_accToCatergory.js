@@ -9,7 +9,7 @@ const StoreItemAccCatergory = (req, res) => {
     const parsedUrl = url.parse(urlString);
     const queryParams = querystring.parse(parsedUrl.query);
     const parameter = queryParams.catergory_id;
-    console.log('parameter'+parameter)
+    // console.log('parameter'+parameter)
 
     if(parameter){
         
@@ -21,7 +21,7 @@ const StoreItemAccCatergory = (req, res) => {
         DB.connection.query(query, (err, result) => {
             if(result){
                 res.send(result)
-                console.log(result)
+                // console.log(result)
             }else{
                 console.log(err)
             }

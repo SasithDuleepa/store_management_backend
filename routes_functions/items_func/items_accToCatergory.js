@@ -8,7 +8,7 @@ const ItemAccCatergory = (req, res) => {
     const parsedUrl = url.parse(urlString);
     const queryParams = querystring.parse(parsedUrl.query);
     const parameter = queryParams.catergory_id;
-    console.log(parameter)
+    // console.log(parameter)
    
 
     if(parameter){

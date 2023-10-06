@@ -13,7 +13,7 @@ const AddBill = (req, res) => {
         DB.connection.query(insertBillQuery, (billErr, billResult) => {
             if (billErr) {
                 console.log(billErr);
-                return res.status(500).json({ error: 'Failed to add bill' });
+                return res.send({ status: 500,message: 'Failed to add bill' });
             }else if(billResult){
                 bill_items.forEach((element) => {
                     const insertItemQuery = `INSERT INTO bill_items (bill_id, item, qty, item_price, total) VALUES ('${bill_id}', '${element.item_name}', '${element.item_qty}', '${element.selling_price}', '${element.totalprice}')`;
@@ -26,7 +26,7 @@ const AddBill = (req, res) => {
                             const availableQtyQuery = `UPDATE stock SET available_qty = available_qty - ${element.item_qty} WHERE stock_id = '${element.stock_id}'`;
                             DB.connection.query(availableQtyQuery, (qtyErr, qtyResult) => {
                                 if (qtyErr) {
-                                    res.status(500).json({ error: 'Failed to add bill' });
+                                    res.send({ status: 500,message: 'Failed to add bill' });
                                 } else if(qtyResult) {
                                     res.status(200).json({ message: 'Bill and items added successfully' });
                                 }
@@ -45,7 +45,7 @@ const AddBill = (req, res) => {
             
         });
     } else {
-        res.status(400).json({ error: 'Invalid bill data' });
+        res.send({status: 400,message: 'Invalid bill data' });
     }
 };
 
