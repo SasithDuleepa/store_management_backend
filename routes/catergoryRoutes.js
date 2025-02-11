@@ -7,6 +7,7 @@ const GetFile = require('../routes_functions/catergory_func/getfile_catergory');
 const GetCatergories = require('../routes_functions/catergory_func/getall_catergory');
 const UpdateCatergory = require('../routes_functions/catergory_func/update_catergory');
 const Deletecatergory = require('../routes_functions/catergory_func/delete_catergory');
+const SearchCategory = require('../routes_functions/catergory_func/search_category')
 
 const router = express.Router();
 
@@ -21,6 +22,8 @@ router.get('/file', GetFile);
 router.put('/',UploadFile.array('file'), UpdateCatergory);
 
 router.delete('/', Deletecatergory)
+
+router.get('/search:category', SearchCategory);
 
 
 module.exports = router;

@@ -1,8 +1,8 @@
 const DB = require('../../config/database');
 
-const AddItem = (req,res) =>{
+const AddItem = async(req,res) =>{
     
-    const{item_name,catergory_name}= req.body;
+    const{item_name,categoryId}= req.body;
     console.log(req.body)
 
     let ItemFileName = null;
@@ -17,10 +17,10 @@ const AddItem = (req,res) =>{
         
     }
 
-    if(!item_name|| !catergory_name){
+    if(!item_name|| !categoryId){
         return res.status(400).send('Category item_name is required.');
     }else{
-        const query= `INSERT INTO item   (item_name, catergory_name,item_file) VALUES ('${item_name}', '${catergory_name}', '${ItemFileName}')`;
+        const query= `INSERT INTO item   (item_name, catergory_id,item_file) VALUES ('${item_name}', '${categoryId}', '${ItemFileName}')`;
         DB.connection.query(query,(err,result)=>{
             if(result){
                 res.status(200).send('Item added successfully.');

@@ -12,9 +12,13 @@ const ItemAccCatergory = (req, res) => {
    
 
     if(parameter){
-        const query = `SELECT * FROM stock_manage.item WHERE catergory_name = '${parameter}'`; 
+        const query = `SELECT item.*,catergory.catergory_name
+        FROM item
+        INNER JOIN catergory ON item.catergory_id = catergory.catergory_id
+        WHERE catergory.catergory_name = '${parameter}'`; 
         DB.connection.query(query, (err, result) => {
             if(result){
+                console.log("eee")
                 res.send(result)
             }else{
                 console.log(err)
